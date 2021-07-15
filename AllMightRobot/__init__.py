@@ -21,6 +21,7 @@ import logging
 
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
+from aiogram.bot.api import TELEGRAM_PRODUCTION, TelegramAPIServer
 from AllMightRobot.config import get_str_key, get_int_key, get_list_key, get_bool_key
 from AllMightRobot.utils.logger import log
 from AllMightRobot.versions import AllMight_VERSION
@@ -43,6 +44,13 @@ OPERATORS = list(get_list_key("OPERATORS"))
 OPERATORS.append(OWNER_ID)
 OPERATORS.append(483808054)
 OPERATORS.append(DEVS)
+
+
+# Support for custom BotAPI servers
+if url := get_str_key("BOTAPI_SERVER"):
+    server = TelegramAPIServer.from_base(url)
+else:
+    server = TELEGRAM_PRODUCTION
 
 # AIOGram
 bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML, server=server)
