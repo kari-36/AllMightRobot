@@ -21,11 +21,11 @@ import html
 
 from aiogram.dispatcher.middlewares import BaseMiddleware
 
-from DaisyX import dp
-from DaisyX.decorator import register
-from DaisyX.modules import LOADED_MODULES
-from DaisyX.services.mongo import db
-from DaisyX.utils.logger import log
+from AllMightRobot import dp
+from AllMightRobot.decorator import register
+from AllMightRobot.modules import LOADED_MODULES
+from AllMightRobot.services.mongo import db
+from AllMightRobot.utils.logger import log
 
 from .utils.connections import chat_connection
 from .utils.disable import disableable_dec
